@@ -67,7 +67,7 @@ El proyecto requiere contar con una serie de prerequisitos y herramientas las cu
 
 [Volver al menú](#tabla-de-contenidos)
 
-#### 2.1 Instalación de prerequisitos
+#### 2.1 Instalación de prerequisitos 
 A continuación se detalla la lista de Prerequisitos requeridos:
 
 [Volver al menú](#tabla-de-contenidos)
