@@ -9,7 +9,7 @@ Ejercicio de Automatización sobre una Aplicación Web
   * [1.1 Objetivos](#11-objetivos)
   * [1.2 Instrucciones](#12-instrucciones)
 - [2. Conjunto de herramientas iniciales](#2-conjunto-de-herramientas-iniciales)
-  * [2.1 Instalación de prerequisitos](#21-intalación-de-prerequisitos)
+  * [2.1 Instalación de prerequisitos](#21-instalación-de-prerequisitos)
     + [2.1.1 Git](#211-git)
     + [2.1.2 Visual Studio Code](#212-visual-studio-code)
 - [3. Conjunto de herramientas de desarrollo](#3-conjunto-de-herramientas-de-desarrollo)
