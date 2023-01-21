@@ -20,6 +20,7 @@
         <serenity.version>3.5.1</serenity.version>
         <junit.version>4.13.2</junit.version>
         <serenity.cucumber.version>2.6.0</serenity.cucumber.version>
+        <tags></tags>
     </properties>
     <build>
         <plugins>
@@ -42,6 +43,18 @@
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
                 <version>${serenity.version}</version>
+                <configuration>
+                    <tags>${tags}</tags>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>serenity-reports</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
