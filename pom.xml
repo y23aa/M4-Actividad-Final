@@ -77,12 +77,24 @@
         </plugins>
     </build>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber6 -->
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core TODO: check if it works with serenity-cucumber6-->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-cucumber6</artifactId>
-            <version>${serenity.cucumber.version}</version>
+            <artifactId>serenity-core</artifactId>
+            <version>3.5.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit TODO: check if it works with serenity-cucumber6 -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber6 -->
+<!--        <dependency> TODO: USED WITH CUCUMBER-->
+<!--            <groupId>net.serenity-bdd</groupId>-->
+<!--            <artifactId>serenity-cucumber6</artifactId>-->
+<!--            <version>${serenity.cucumber.version}</version>-->
+<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
         <dependency>
             <groupId>org.assertj</groupId>
