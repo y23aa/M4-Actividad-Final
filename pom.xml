@@ -34,11 +34,11 @@
                 </configuration>
             </plugin>
 <!--            Below is not included in video complementario 4-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>${maven.surefire.version}</version>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+            </plugin>
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
@@ -62,7 +62,7 @@
                 <version>${maven.failsafe.version}</version>
                 <configuration>
                     <includes>
-                        <include>**/TestSuite.java</include>
+                        <include>**/*TestSuite.java</include>
                     </includes>
                 </configuration>
                 <executions>
@@ -78,23 +78,23 @@
     </build>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core TODO: check if it works with serenity-cucumber6-->
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-core</artifactId>
-            <version>3.5.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit TODO: check if it works with serenity-cucumber6 -->
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-junit</artifactId>
-            <version>3.5.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber6 -->
-<!--        <dependency> TODO: USED WITH CUCUMBER-->
+<!--        <dependency>-->
 <!--            <groupId>net.serenity-bdd</groupId>-->
-<!--            <artifactId>serenity-cucumber6</artifactId>-->
-<!--            <version>${serenity.cucumber.version}</version>-->
+<!--            <artifactId>serenity-core</artifactId>-->
+<!--            <version>3.5.1</version>-->
 <!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit TODO: check if it works with serenity-cucumber6 -->
+<!--        <dependency>-->
+<!--            <groupId>net.serenity-bdd</groupId>-->
+<!--            <artifactId>serenity-junit</artifactId>-->
+<!--            <version>3.5.1</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber6 -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber6</artifactId>
+            <version>${serenity.cucumber.version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
         <dependency>
             <groupId>org.assertj</groupId>
