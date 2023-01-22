@@ -15,7 +15,7 @@ import io.cucumber.java.After;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SerenityRunner.class)
-public class TestStepsGroup4ATest1y2 {
+public class Test1_2 {
 
     @Managed
     WebDriver driver;
