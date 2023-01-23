@@ -2,89 +2,89 @@ package starter;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.FixMethodOrder;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.Alert;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.After;
-import static org.junit.Assert.assertEquals;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 @RunWith(SerenityRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Test1_2 {
+    private static final String WEBSITE = "https://www.demoblaze.com/index.html";
+    private static final By SIGNUP_LOCATOR = By.id("signin2");
+    private static final By USERNAME_LOCATOR = By.id("sign-username");
+    private static final By PASSWORD_LOCATOR = By.id("sign-password");
+    private static final By SIGNUP_2_LOCATOR = By.xpath("//button[@onclick=\"register()\"]");
+    private static final By LOGIN_LOCATOR = By.id("login2");
+    //private static final By OK_LOCATOR = By.name("Ok");
+    private static final By LOGIN_2_LOCATOR = By.xpath("//button[@onclick=\"logIn()\"]");
+    private static final By USERNAME2_LOCATOR = By.id("loginusername");
+    private static final By PASSWORD2_LOCATOR = By.id("loginpassword");
+    private static final By LOGGED_USER_LOCATOR = By.id("nameofuser");
+
+    private static final String TEST_NAME="start121sdf23s";
+    private static final String TEST_PWD="marte45sdf123s";
+
+    private void sleepmSecs(int mSec){
+        try {
+            Thread.sleep(Duration.ofMillis(mSec));
+        }
+        catch(InterruptedException ie){
+        }
+    }
+
 
     @Managed
     WebDriver driver;
-    private String username;
-    private String password;
+    WebDriverWait wait;
 
-    @Given("I am on the website")
-    public void i_am_on_the_website() {
-        driver = new ChromeDriver();
-        driver.get("https://www.demoblaze.com");
+    @Before
+    public void setUp() {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver.get(WEBSITE);
     }
 
-    @When("I click on the signup button")
-    public void i_click_on_the_signup_button() {
-        WebElement signupButton = driver.findElement(By.id("signin2"));
-        signupButton.click();
+    @Test
+    public void test1_signup() {
+        sleepmSecs(250);
+        WebElement SignupButton = driver.findElement(SIGNUP_LOCATOR);
+        wait.until(elementToBeClickable(SignupButton));
+        SignupButton.click();
+        driver.findElement(USERNAME_LOCATOR).sendKeys(TEST_NAME);
+        driver.findElement(PASSWORD_LOCATOR).sendKeys(TEST_PWD);
+        driver.findElement(SIGNUP_2_LOCATOR).click();
+        wait.until(alertIsPresent());
+        String alertText=driver.switchTo().alert().getText();
+        assertThat(alertText).isEqualToIgnoringCase("Sign up successful.");
+        driver.switchTo().alert().accept();  //ToDo: Not sure if necessary
     }
 
-    @When("I fill in {string} as the username")
-    public void i_fill_in_as_the_username(String username) {
-        WebElement usernameField = driver.findElement(By.id("sign-username"));
-        usernameField.sendKeys("DTXaviH");
-        this.username = "DTXaviH";
-    }
-
-    @When("I fill in {string} as the password")
-    public void i_fill_in_as_the_password(String password) {
-        WebElement passwordField = driver.findElement(By.id("sign-password"));
-        passwordField.sendKeys("passw123456");
-        this.password = "passw123456";
-    }
-
-    @When("I click on the signup button 2")
-    public void i_click_on_the_signup_button_2() {
-        WebElement submitButton = driver.findElement(By.className("btn btn-primary"));
-        submitButton.click();
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-    }
-
-    @When("I click on the login button")
-    public void i_click_on_the_login_button() {
-        WebElement loginButton = driver.findElement(By.id("login2"));
-        loginButton.click();
-    }
-
-    @When("I fill in the same username as before")
-    public void i_fill_in_the_same_username_as_before() {
-        WebElement usernameField = driver.findElement(By.id("loginusername"));
-        usernameField.sendKeys(this.username);
-    }
-
-    @When("I fill in the same password as before")
-    public void i_fill_in_the_same_password_as_before() {
-        WebElement passwordField = driver.findElement(By.id("loginpassword"));
-        passwordField.sendKeys(this.password);
-    }
-
-    @When("I click on the login button 2")
-    public void i_click_on_the_login_button_2() {
-        WebElement loginSubmitButton = driver.findElement(By.className("btn btn-primary"));
-        loginSubmitButton.click();
-    }
-
-    @Then("I should be logged in")
-    public void i_should_be_logged_in() {
-        String expectedUrl = "https://www.demoblaze.com";
-        String actualUrl = driver.getCurrentUrl();
-        assertEquals(expectedUrl, actualUrl);
+    @Test
+    public void test2_login() {
+        sleepmSecs(250);
+        WebElement LoginButton = driver.findElement(LOGIN_LOCATOR);
+        wait.until(elementToBeClickable(LoginButton));
+        LoginButton.click();
+        driver.findElement(USERNAME2_LOCATOR).sendKeys(TEST_NAME);
+        driver.findElement(PASSWORD2_LOCATOR).sendKeys(TEST_PWD);
+        driver.findElement(LOGIN_2_LOCATOR).click();
+        sleepmSecs(1500);
+        wait.until(presenceOfElementLocated(LOGGED_USER_LOCATOR));
+        String loggedUserName = driver.findElement(LOGGED_USER_LOCATOR).getText();
+        assertThat(loggedUserName).isEqualToIgnoringCase("Welcome " + TEST_NAME);
     }
 
     @After
