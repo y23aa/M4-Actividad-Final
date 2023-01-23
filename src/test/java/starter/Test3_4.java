@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
@@ -43,9 +42,9 @@ public class Test3_4 {
     private static final By LAPTOP_VAIO_I7_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=9\"]");
     private static final By ADD_TO_CART_LAPTOP_VAIO_I7 = By.xpath("//a[@onclick=\"addToCart(9)\"]");
 
-    private void sleep1Sec(){
+    private void sleepmSecs(int mSec){
         try {
-            Thread.sleep(Duration.ofSeconds(1));
+            Thread.sleep(Duration.ofMillis(mSec));
         }
         catch(InterruptedException ie){
         }
@@ -64,19 +63,19 @@ public class Test3_4 {
     @Test
     public void test3_navigate_between_different_products(){
         driver.findElement(PHONES_LOCATOR).click();
-        sleep1Sec();
+        sleepmSecs(1000);
         assertThat(driver.findElements(PHONE_S6_LOCATOR).size()).isGreaterThanOrEqualTo(1);
         assertThat(driver.findElements(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
         assertThat(driver.findElements(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
 
         driver.findElement(LAPTOPS_LOCATOR).click();
-        sleep1Sec();
+        sleepmSecs(1000);
         assertThat(driver.findElements(PHONE_S6_LOCATOR).size()).isLessThan(1);
         assertThat(driver.findElements(LAPTOP_VAIO_I5_LOCATOR).size()).isGreaterThanOrEqualTo(1);
         assertThat(driver.findElements(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
 
         driver.findElement(MONITOR_LOCATOR).click();
-        sleep1Sec();
+        sleepmSecs(1000);
         assertThat(driver.findElements(PHONE_S6_LOCATOR).size()).isLessThan(1);
         assertThat(driver.findElements(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
         assertThat(driver.findElements(MONITOR_APPLE_24_LOCATOR).size()).isGreaterThanOrEqualTo(1);
