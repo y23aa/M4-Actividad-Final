@@ -31,9 +31,10 @@ Ejercicio de Automatización sobre una Aplicación Web
     + [5.5.1 COMO usuario QUIERO eliminar el Samsung galaxy s6](#551-como-usuario-quiero-eliminar-el-samsung-galaxy-s6)
   * [5.6 Test 6 Pedido de artículos](#56-test-6-pedido-de-artículos)
     + [5.6.1 COMO usuario QUIERO realizar el pedido de artículos seleccionados](#561-como-usuario-quiero-realizar-el-pedido-de-artículos-seleccionados)
-- [6. Realizado Con](#6-realizado-con)
-- [7. Autores](#7-autores)
-- [8. Licencia](#8-licencia)
+- [6. Resultado Final](#6-resultado-final)
+- [7. Realizado Con](#7-realizado-con)
+- [8. Autores](#8-autores)
+- [9. Licencia](#9-licencia)
 
 ## Inicio
 El proyecto consiste en implementar comprobaciones automatizadas web en el siguiente enlace <a href="https://www.demoblaze.com/index.html" onclick="window.open(this.href, '_blank'); return false;">TIENDA ONLINE</a>
@@ -316,7 +317,16 @@ public void
 ```
 [Volver al menú](#tabla-de-contenidos)
 
-## **6. Realizado Con**
+## **6. Resultado Final**
+
+Los resultados del test fueron satisfactorios
+
+![image1](https://user-images.githubusercontent.com/123221049/214038162-96d1fd30-5c37-4217-af64-f4b13255a803.png)
+
+![image2](https://user-images.githubusercontent.com/123221049/214038825-4336897c-4fe3-42a1-9c4b-2d46f43c26c9.png)
+
+
+## **7. Realizado Con**
 ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
 ![DuckDuckGo](https://img.shields.io/badge/DuckDuckGo-DE5833?style=for-the-badge&logo=DuckDuckGo&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
@@ -331,14 +341,14 @@ public void
 
 [Volver al menú](#tabla-de-contenidos)
 
-## **7. Autores**
+## **8. Autores**
 Derun Chen  
 Jimmy Ulloa Mora  
 Jose Valentin Serra Mendoza
 
 [Volver al menú](#tabla-de-contenidos)
 
-## **8. Licencia**
+## **9. Licencia**
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [Volver al menú](#tabla-de-contenidos)
