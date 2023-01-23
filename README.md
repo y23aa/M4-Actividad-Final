@@ -286,9 +286,9 @@ Then - Luego el usuario puede seleccionar ya sea "S6", "Vaio I5", "Apple 24"
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.4 Test 4 Añadir al carrito
-Escenario: Usuario puede añadir al carrito 
-Given - Dado que el usuario puede seleccionar diferentes productos
-When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"
+Escenario: Usuario puede añadir al carrito  
+Given - Dado que el usuario puede seleccionar diferentes productos  
+When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"  
 Then - Luego el usuario lo puede añadir al carrito
 
 [Volver al menú](#tabla-de-contenidos)
@@ -299,9 +299,9 @@ Then - Luego el usuario lo puede añadir al carrito
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.5 Test 5 Eliminar del carrito
-Escenario: Usuario puede eliminar del carrito 
-Given - Dado que el usuario puede seleccionar diferentes productos
-When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"
+Escenario: Usuario puede eliminar del carrito  
+Given - Dado que el usuario puede seleccionar diferentes productos  
+When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"  
 Then - Luego el usuario lo puede eliminar del carrito 
 
 [Volver al menú](#tabla-de-contenidos)
@@ -312,9 +312,9 @@ Then - Luego el usuario lo puede eliminar del carrito
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.6 Test 6 Pedido de artículos
-Escenario: Usuario puede hacer pedidos
-Given - Dado que el usuario puede seleccionar diferentes productos
-When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"
+Escenario: Usuario puede hacer pedidos  
+Given - Dado que el usuario puede seleccionar diferentes productos  
+When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"  
 Then - Luego el usuario procede a hacer el pedido 
 
 [Volver al menú](#tabla-de-contenidos)
