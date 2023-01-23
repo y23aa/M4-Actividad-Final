@@ -35,8 +35,8 @@ public class Test1_2 {
     private static final By PASSWORD2_LOCATOR = By.id("loginpassword");
     private static final By LOGGED_USER_LOCATOR = By.id("nameofuser");
 
-    private static final String TEST_NAME="start121sdf23s";
-    private static final String TEST_PWD="marte45sdf123s";
+    private static final String TEST_NAME="start121zs";
+    private static final String TEST_PWD="marte45szs";
 
     private void sleepmSecs(int mSec){
         try {
@@ -81,7 +81,7 @@ public class Test1_2 {
         driver.findElement(USERNAME2_LOCATOR).sendKeys(TEST_NAME);
         driver.findElement(PASSWORD2_LOCATOR).sendKeys(TEST_PWD);
         driver.findElement(LOGIN_2_LOCATOR).click();
-        sleepmSecs(1500);
+        sleepmSecs(2000);
         wait.until(presenceOfElementLocated(LOGGED_USER_LOCATOR));
         String loggedUserName = driver.findElement(LOGGED_USER_LOCATOR).getText();
         assertThat(loggedUserName).isEqualToIgnoringCase("Welcome " + TEST_NAME);

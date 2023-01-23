@@ -17,7 +17,7 @@ import java.time.Duration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
-//import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 //@RunWith(CucumberSerenityRunner.class) TODO: USED WITH CUCUMBER
 @RunWith(SerenityRunner.class)
@@ -72,12 +72,11 @@ public class Test5_6 {
     @Test
     public void test6_do_checkout(){
         driver.findElement(LAPTOPS_LOCATOR).click();
-        sleepmSecs(500);
+        sleepmSecs(750);
         WebElement laptopVaioButton = driver.findElement(LAPTOP_VAIO_LOCATOR);
         laptopVaioButton.click();
-        WebElement addToCartButton2 = driver.findElement(ADD_TO_CART_LAPTOP_VAIO_LOCATOR);
-        wait.until(elementToBeClickable(addToCartButton2));
-        addToCartButton2.click();
+        wait.until(presenceOfElementLocated(ADD_TO_CART_LAPTOP_VAIO_LOCATOR));
+        driver.findElement(ADD_TO_CART_LAPTOP_VAIO_LOCATOR).click();
         wait.until(alertIsPresent());
         driver.switchTo().alert().accept();
         driver.findElement(VIEW_CART_LOCATOR).click();
