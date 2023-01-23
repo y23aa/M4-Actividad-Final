@@ -12,17 +12,12 @@ import org.junit.Test;
 import org.junit.FixMethodOrder;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 @RunWith(SerenityRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

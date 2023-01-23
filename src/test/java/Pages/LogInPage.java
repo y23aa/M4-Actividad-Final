@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 public class LogInPage {
     private static final By LOGIN_BUTTON_LOCATOR = By.xpath("//button[@onclick=\"logIn()\"]");

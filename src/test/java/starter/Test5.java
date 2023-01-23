@@ -1,29 +1,21 @@
 package starter;
 
-//import io.cucumber.junit.CucumberSerenityRunner; TODO: USED WITH CUCUMBER
 import Pages.CartPage;
 import Pages.HomePage;
 import Pages.ProductPage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
-//@RunWith(CucumberSerenityRunner.class) TODO: USED WITH CUCUMBER
 @RunWith(SerenityRunner.class)
 public class Test5 {
     private static final By PHONE_S6_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=1\"]"); // ToDo: create locators from ids numbers
