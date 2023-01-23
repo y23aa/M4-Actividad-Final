@@ -25,7 +25,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 //@RunWith(CucumberSerenityRunner.class) TODO: USED WITH CUCUMBER
 @RunWith(SerenityRunner.class)
-public class Test3_4 {
+public class Test3 {
     private static final String WEBSITE = "https://www.demoblaze.com/index.html";
     private static final By PHONES_LOCATOR = By.xpath("//a[@onclick=\"byCat('phone')\"]");
     private static final By LAPTOPS_LOCATOR = By.xpath("//a[@onclick=\"byCat('notebook')\"]");
@@ -46,11 +46,10 @@ public class Test3_4 {
     private static final By LAPTOP_VAIO_I7_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=9\"]");
     private static final By ADD_TO_CART_LAPTOP_VAIO_I7 = By.xpath("//a[@onclick=\"addToCart(9)\"]");
 
-    private void sleep1Sec(){
+    private void sleep1Sec() {
         try {
             Thread.sleep(Duration.ofSeconds(1));
-        }
-        catch(InterruptedException ie){
+        } catch (InterruptedException ie) {
         }
     }
 
@@ -60,8 +59,9 @@ public class Test3_4 {
     private HomePage homePage;
     private CartPage cartPage;
     private ProductPage productPage;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         homePage = new HomePage(driver);
         cartPage = new CartPage(driver);
         productPage = new ProductPage(driver);
@@ -69,55 +69,29 @@ public class Test3_4 {
     }
 
     @Test
-    public void test3_navigate_between_different_products(){
-        driver.findElement(PHONES_LOCATOR).click();
-        sleep1Sec();
-        assertThat(driver.findElements(PHONE_S6_LOCATOR).size()).isGreaterThanOrEqualTo(1);
-        assertThat(driver.findElements(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
-        assertThat(driver.findElements(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
-
-        driver.findElement(LAPTOPS_LOCATOR).click();
-        sleep1Sec();
-        assertThat(driver.findElements(PHONE_S6_LOCATOR).size()).isLessThan(1);
-        assertThat(driver.findElements(LAPTOP_VAIO_I5_LOCATOR).size()).isGreaterThanOrEqualTo(1);
-        assertThat(driver.findElements(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
-
-        driver.findElement(MONITOR_LOCATOR).click();
-        sleep1Sec();
-        assertThat(driver.findElements(PHONE_S6_LOCATOR).size()).isLessThan(1);
-        assertThat(driver.findElements(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
-        assertThat(driver.findElements(MONITOR_APPLE_24_LOCATOR).size()).isGreaterThanOrEqualTo(1);
-    }
-
-    @Test
-    public void testAddToCart() {
-        // Add Samsung galaxy s7
+    public void test3_navigate_between_different_products() {
         homePage.navigateTo();
         homePage.clickOnPhones();
-        productPage.clickOnProduct(PHONE_S7_LOCATOR);
-        productPage.addProductToCart();
-        cartPage.navigateTo();
-        assertThat(cartPage.getProductNames()).contains("Samsung galaxy s7");
+        sleep1Sec();
+        assertThat(homePage.findItemByLocator(PHONE_S6_LOCATOR).size()).isGreaterThanOrEqualTo(1);
+        assertThat(homePage.findItemByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
+        assertThat(homePage.findItemByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
 
-        // Add Samsung galaxy s7
-        homePage.navigateTo();
-        homePage.clickOnPhones();
-        productPage.clickOnProduct(PHONE_S6_LOCATOR);
-        productPage.addProductToCart();
-        cartPage.navigateTo();
-        assertThat(cartPage.getProductNames()).contains("Samsung galaxy s6");
-
-        // Add Sony vaio i7
-        homePage.navigateTo();
         homePage.clickOnLaptops();
-        productPage.clickOnProduct(LAPTOP_VAIO_I7_LOCATOR);
-        productPage.addProductToCart();
-        cartPage.navigateTo();
-        assertThat(cartPage.getProductNames()).contains("Sony vaio i7");
+        sleep1Sec();
+        assertThat(homePage.findItemByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
+        assertThat(homePage.findItemByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isGreaterThanOrEqualTo(1);
+        assertThat(homePage.findItemByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
+
+        homePage.clickOnMonitors();
+        sleep1Sec();
+        assertThat(homePage.findItemByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
+        assertThat(homePage.findItemByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
+        assertThat(homePage.findItemByLocator(MONITOR_APPLE_24_LOCATOR).size()).isGreaterThanOrEqualTo(1);
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

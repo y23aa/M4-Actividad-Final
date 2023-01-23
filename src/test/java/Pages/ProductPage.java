@@ -7,14 +7,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
+
+
 
 public class ProductPage {
+    private void sleep1Sec(){
+        try {
+            Thread.sleep(Duration.ofSeconds(1));
+        }
+        catch(InterruptedException ie){
+        }
+    }
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private static final By PRODUCT_LOCATOR = By.xpath("//*[@id=\"tbodyid\"]/div[1]/div/div/h4/a");
     private static final By ADD_TO_CART_LOCATOR = By.xpath("//*[@id=\"tbodyid\"]/div[2]/div/a[text()='Add to cart']");
     //*[@id="tbodyid"]/div[2]/div/a
     public ProductPage(WebDriver driver) {
@@ -23,6 +30,7 @@ public class ProductPage {
         }
 
     public void clickOnProduct(By productName) {
+        sleep1Sec();
         wait.until(elementToBeClickable(productName));
         driver.findElement(productName).click();
     }
@@ -30,5 +38,7 @@ public class ProductPage {
     public void addProductToCart() {
         wait.until(elementToBeClickable((ADD_TO_CART_LOCATOR)));
         driver.findElement(ADD_TO_CART_LOCATOR).click();
+        wait.until(alertIsPresent());
+        driver.switchTo().alert().accept();
     }
 }
