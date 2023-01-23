@@ -7,10 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,6 +16,7 @@ import java.time.Duration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 @RunWith(SerenityRunner.class)
 public class Test1_2 {
@@ -32,7 +30,19 @@ public class Test1_2 {
     private static final By LOGIN_2_LOCATOR = By.xpath("//button[@onclick=\"logIn()\"]");
     private static final By USERNAME2_LOCATOR = By.id("loginusername");
     private static final By PASSWORD2_LOCATOR = By.id("loginpassword");
-    private static final By LOGIN_3_LOCATOR = By.xpath("//button[@onclick=\"logIn()\"]");
+    private static final By LOGGED_USER_LOCATOR = By.id("nameofuser");
+
+    private static final String TEST_NAME="start121sdf233";
+    private static final String TEST_PWD="marte45sdf123";
+
+    private void sleepmSecs(int mSec){
+        try {
+            Thread.sleep(Duration.ofMillis(mSec));
+        }
+        catch(InterruptedException ie){
+        }
+    }
+
 
     @Managed
     WebDriver driver;
@@ -46,32 +56,33 @@ public class Test1_2 {
 
     @Test
     public void test1_signup() {
+        sleepmSecs(250);
         WebElement SignupButton = driver.findElement(SIGNUP_LOCATOR);
         wait.until(elementToBeClickable(SignupButton));
         SignupButton.click();
-        driver.findElement(USERNAME_LOCATOR).sendKeys("start123");
-        driver.findElement(PASSWORD_LOCATOR).sendKeys("marte45");
+        driver.findElement(USERNAME_LOCATOR).sendKeys("start121sdf233");
+        driver.findElement(PASSWORD_LOCATOR).sendKeys("marte45sdf123");
         driver.findElement(SIGNUP_2_LOCATOR).click();
         wait.until(alertIsPresent());
-        driver.switchTo().alert().accept();
-        //driver.findElement(OK_LOCATOR).click();
-
+        String alertText=driver.switchTo().alert().getText();
+        assertThat(alertText).isEqualToIgnoringCase("Sign up successful.");
+        driver.switchTo().alert().accept();  //ToDo: Not sure if necessary
     }
 
     @Test
     public void test2_login() {
+        sleepmSecs(250);
         WebElement LoginButton = driver.findElement(LOGIN_LOCATOR);
         wait.until(elementToBeClickable(LoginButton));
         LoginButton.click();
-        driver.findElement(USERNAME2_LOCATOR).sendKeys("start123");
-        driver.findElement(PASSWORD2_LOCATOR).sendKeys("marte45");
+        driver.findElement(USERNAME2_LOCATOR).sendKeys(TEST_NAME);
+        driver.findElement(PASSWORD2_LOCATOR).sendKeys(TEST_PWD);
         driver.findElement(LOGIN_2_LOCATOR).click();
-        wait.until(alertIsPresent());
-        driver.switchTo().alert().accept();
-        driver.findElement(LOGIN_3_LOCATOR).click();
-        //String expectedUrl = "https://www.demoblaze.com/index.html";
-        //String actualUrl = driver.getCurrentUrl();
-        //assertThat(actualUrl).isEqualTo(expectedUrl);
+        sleepmSecs(1500);
+        wait.until(presenceOfElementLocated(LOGGED_USER_LOCATOR));
+        String loggedUserName = driver.findElement(LOGGED_USER_LOCATOR).getText();
+        assertThat(loggedUserName).isEqualToIgnoringCase("Welcome " + TEST_NAME);
+
     }
 
     @After
