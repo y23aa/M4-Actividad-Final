@@ -295,11 +295,8 @@ Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 [Volver al menú](#tabla-de-contenidos)
 
 ##### 5.5.1 COMO usuario QUIERO eliminar el Samsung galaxy s6
-```
-@Test
-public void 
-}
-```
+![test5](https://user-images.githubusercontent.com/123221049/214047011-a64d2c97-d5fd-4fd0-ab8e-e3728d21a074.PNG)
+
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.6 Test 6 Pedido de artículos
@@ -307,11 +304,8 @@ public void
 [Volver al menú](#tabla-de-contenidos)
 
 ##### 5.6.1 COMO usuario QUIERO realizar el pedido de artículos seleccionados
-```
-@Test
-public void 
-}
-```
+![test6](https://user-images.githubusercontent.com/123221049/214047300-defb6b20-0b4c-4af8-8525-fd5cef00d074.PNG)
+
 [Volver al menú](#tabla-de-contenidos)
 
 ## **6. Resultado Final**
