@@ -32,6 +32,16 @@ public class Test5_6 {
     private static final By VIEW_CART_LOCATOR = By.id("cartur");
     private static final By CART_FIRST_ROW_NAME_LOCATOR = By.xpath("//*[@id='tbodyid']/tr/td[2]");
     private static final By PLACE_ORDER_LOCATOR = By.xpath("//button[@data-target='#orderModal']");
+    private static final By DELETE_ITEM_LOCATOR = By.xpath("//a[contains(@onclick,'deleteItem')]");
+
+    private void sleepmSecs(int mSec){
+        try {
+            Thread.sleep(Duration.ofMillis(mSec));
+        }
+        catch(InterruptedException ie){
+        }
+    }
+
     @Managed
     WebDriver driver;
     WebDriverWait wait;
@@ -54,12 +64,17 @@ public class Test5_6 {
         driver.findElement(VIEW_CART_LOCATOR).click();
         String title = driver.findElement(CART_FIRST_ROW_NAME_LOCATOR).getText();
         assertThat(title).isEqualToIgnoringCase("Samsung galaxy s6");
+        driver.findElement(DELETE_ITEM_LOCATOR).click();
+        sleepmSecs(1000);
+        assertThat(driver.findElements(CART_FIRST_ROW_NAME_LOCATOR).size()).isLessThan(1);
     }
 
     @Test
     public void test6_do_checkout(){
         driver.findElement(LAPTOPS_LOCATOR).click();
-        driver.findElement(LAPTOP_VAIO_LOCATOR).click();
+        sleepmSecs(500);
+        WebElement laptopVaioButton = driver.findElement(LAPTOP_VAIO_LOCATOR);
+        laptopVaioButton.click();
         WebElement addToCartButton2 = driver.findElement(ADD_TO_CART_LAPTOP_VAIO_LOCATOR);
         wait.until(elementToBeClickable(addToCartButton2));
         addToCartButton2.click();
