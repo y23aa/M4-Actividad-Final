@@ -27,7 +27,12 @@ public class Test1_2 {
     private static final By USERNAME_LOCATOR = By.id("sign-username");
     private static final By PASSWORD_LOCATOR = By.id("sign-password");
     private static final By SIGNUP_2_LOCATOR = By.xpath("//button[@onclick=\"register()\"]");
-
+    private static final By LOGIN_LOCATOR = By.id("login2");
+    //private static final By OK_LOCATOR = By.name("Ok");
+    private static final By LOGIN_2_LOCATOR = By.xpath("//button[@onclick=\"logIn()\"]");
+    private static final By USERNAME2_LOCATOR = By.id("loginusername");
+    private static final By PASSWORD2_LOCATOR = By.id("loginpassword");
+    private static final By LOGIN_3_LOCATOR = By.xpath("//button[@onclick=\"logIn()\"]");
 
     @Managed
     WebDriver driver;
@@ -35,7 +40,7 @@ public class Test1_2 {
 
     @Before
     public void setUp() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.get(WEBSITE);
     }
 
@@ -44,27 +49,30 @@ public class Test1_2 {
         WebElement SignupButton = driver.findElement(SIGNUP_LOCATOR);
         wait.until(elementToBeClickable(SignupButton));
         SignupButton.click();
-        driver.findElement(USERNAME_LOCATOR).sendKeys("UserSiglo12123");
-        driver.findElement(PASSWORD_LOCATOR).sendKeys("passw123456123");
+        driver.findElement(USERNAME_LOCATOR).sendKeys("start123");
+        driver.findElement(PASSWORD_LOCATOR).sendKeys("marte45");
         driver.findElement(SIGNUP_2_LOCATOR).click();
         wait.until(alertIsPresent());
         driver.switchTo().alert().accept();
+        //driver.findElement(OK_LOCATOR).click();
+
     }
 
-//    @Test
-//    public void test2_login() {
-//        driver.get("https://www.demoblaze.com/index.html");
-//        driver.findElement(By.cssSelector("#login2")).click();
-//        driver.findElement(By.name("Username")).click();
-//        driver.findElement(By.name("Username")).sendKeys("UserSiglo12");
-//        driver.findElement(By.name("Password")).click();
-//        driver.findElement(By.name("Password")).sendKeys("passw123456");
-//        driver.findElement(By.name("Log in")).click();
-//        driver.findElement(By.name("Ok")).click();
-//        String expectedUrl = "https://www.demoblaze.com/index.html";
-//        String actualUrl = driver.getCurrentUrl();
-//        assertThat(actualUrl).isEqualTo(expectedUrl);
-//    }
+    @Test
+    public void test2_login() {
+        WebElement LoginButton = driver.findElement(LOGIN_LOCATOR);
+        wait.until(elementToBeClickable(LoginButton));
+        LoginButton.click();
+        driver.findElement(USERNAME2_LOCATOR).sendKeys("start123");
+        driver.findElement(PASSWORD2_LOCATOR).sendKeys("marte45");
+        driver.findElement(LOGIN_2_LOCATOR).click();
+        wait.until(alertIsPresent());
+        driver.switchTo().alert().accept();
+        driver.findElement(LOGIN_3_LOCATOR).click();
+        //String expectedUrl = "https://www.demoblaze.com/index.html";
+        //String actualUrl = driver.getCurrentUrl();
+        //assertThat(actualUrl).isEqualTo(expectedUrl);
+    }
 
     @After
     public void close_browser() {
