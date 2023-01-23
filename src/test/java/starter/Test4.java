@@ -4,10 +4,12 @@ package starter;
 import Pages.CartPage;
 import Pages.HomePage;
 import Pages.ProductPage;
+import io.cucumber.java.BeforeAll;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -51,13 +53,14 @@ public class Test4 {
     }
 
     @Managed
-    WebDriver driver;
-    WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
     private HomePage homePage;
-    private CartPage cartPage;
-    private ProductPage productPage;
+    private static CartPage cartPage;
+    private static ProductPage productPage;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         homePage = new HomePage(driver);
         cartPage = new CartPage(driver);
         productPage = new ProductPage(driver);
@@ -72,15 +75,15 @@ public class Test4 {
         productPage.clickOnProduct(PHONE_S7_LOCATOR);
         productPage.addProductToCart();
         cartPage.navigateTo();
-        assertThat(cartPage.getProductNames()).contains("Samsung galaxy s7");
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7");
 
-        // Add Samsung galaxy s7
+        // Add Samsung galaxy s6
         homePage.navigateTo();
         homePage.clickOnPhones();
         productPage.clickOnProduct(PHONE_S6_LOCATOR);
         productPage.addProductToCart();
         cartPage.navigateTo();
-        assertThat(cartPage.getProductNames()).contains("Samsung galaxy s6");
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");
 
         // Add Sony vaio i7
         homePage.navigateTo();
@@ -88,7 +91,7 @@ public class Test4 {
         productPage.clickOnProduct(LAPTOP_VAIO_I7_LOCATOR);
         productPage.addProductToCart();
         cartPage.navigateTo();
-        assertThat(cartPage.getProductNames()).contains("Sony vaio i7");
+        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");
     }
 
     @After

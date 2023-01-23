@@ -73,21 +73,21 @@ public class Test3 {
         homePage.navigateTo();
         homePage.clickOnPhones();
         sleep1Sec();
-        assertThat(homePage.findItemByLocator(PHONE_S6_LOCATOR).size()).isGreaterThanOrEqualTo(1);
-        assertThat(homePage.findItemByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
-        assertThat(homePage.findItemByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
+        assertThat(productPage.findItemsByLocator(PHONE_S6_LOCATOR).size()).isGreaterThanOrEqualTo(1);
+        assertThat(productPage.findItemsByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
+        assertThat(productPage.findItemsByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
 
         homePage.clickOnLaptops();
         sleep1Sec();
-        assertThat(homePage.findItemByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
-        assertThat(homePage.findItemByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isGreaterThanOrEqualTo(1);
-        assertThat(homePage.findItemByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
+        assertThat(productPage.findItemsByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
+        assertThat(productPage.findItemsByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isGreaterThanOrEqualTo(1);
+        assertThat(productPage.findItemsByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
 
         homePage.clickOnMonitors();
         sleep1Sec();
-        assertThat(homePage.findItemByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
-        assertThat(homePage.findItemByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
-        assertThat(homePage.findItemByLocator(MONITOR_APPLE_24_LOCATOR).size()).isGreaterThanOrEqualTo(1);
+        assertThat(productPage.findItemsByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
+        assertThat(productPage.findItemsByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
+        assertThat(productPage.findItemsByLocator(MONITOR_APPLE_24_LOCATOR).size()).isGreaterThanOrEqualTo(1);
     }
 
     @After
