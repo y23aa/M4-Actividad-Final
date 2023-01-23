@@ -23,8 +23,11 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 @RunWith(SerenityRunner.class)
 public class Test1_2 {
     private static final String WEBSITE = "https://www.demoblaze.com/index.html";
-    private static final By SIGNUP_LOCATOR = By.xpath("//*[@id=\"signin2\"]");
-    private static final By USERNAME_LOCATOR = By.xpath("//*[@id=\"sign-username\"]");
+    private static final By SIGNUP_LOCATOR = By.id("signin2");
+    private static final By USERNAME_LOCATOR = By.id("sign-username");
+    private static final By PASSWORD_LOCATOR = By.id("sign-password");
+    private static final By SIGNUP_2_LOCATOR = By.xpath("//button[@onclick=\"register()\"]");
+
 
     @Managed
     WebDriver driver;
@@ -41,14 +44,10 @@ public class Test1_2 {
         WebElement SignupButton = driver.findElement(SIGNUP_LOCATOR);
         wait.until(elementToBeClickable(SignupButton));
         SignupButton.click();
-        driver.findElement(USERNAME_LOCATOR).click();
-        driver.findElement(By.cssSelector("#signin2")).click();
-        driver.findElement(By.name("Username")).click();
-        driver.findElement(By.name("Username")).sendKeys("UserSiglo12");
-        driver.findElement(By.name("Password")).click();
-        driver.findElement(By.name("Password")).sendKeys("passw123456");
-        driver.findElement(By.name("Sign up")).click();
-        driver.findElement(By.name("Ok")).click();
+        driver.findElement(USERNAME_LOCATOR).sendKeys("UserSiglo12123");
+        driver.findElement(PASSWORD_LOCATOR).sendKeys("passw123456123");
+        driver.findElement(SIGNUP_2_LOCATOR).click();
+        wait.until(alertIsPresent());
         driver.switchTo().alert().accept();
     }
 
