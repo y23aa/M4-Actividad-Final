@@ -259,6 +259,10 @@ Then -  Luego se crea una nueva cuenta y el usuario puede iniciar sesión
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.2 Test 2 Iniciar sesión
+Escenario: Usuario inicia sesión
+Given - Dado que el usuario navega a la página de inicio de sesión
+When -  Cuando el usuario ingresa su nombre de usuario y contraseña Y hace clic en el botón "inicio de sesión"  
+Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 
 [Volver al menú](#tabla-de-contenidos)
 
