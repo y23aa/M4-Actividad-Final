@@ -252,11 +252,8 @@ El conjunto de pruebas contiene las siguientes pruebas
 
 ##### 5.1.1 COMO usuario QUIERO ser capaz de darme de alta
 
-```
- @Test
-    public void xx
-    }
-   ```
+![test1](https://user-images.githubusercontent.com/123221049/214040957-05b9b38f-ce99-4ac6-b7a0-ebeb47884e27.PNG)
+
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.2 Test 2 Iniciar sesión
@@ -265,11 +262,8 @@ El conjunto de pruebas contiene las siguientes pruebas
 
 ##### 5.2.1 COMO usuario QUIERO ser capaz de iniciar sesión en la Tienda Online
 
-```
-@Test
-    public void 
-    }
-```
+![test1](https://user-images.githubusercontent.com/123221049/214043666-31386829-e55a-4546-8b11-0a5a6b3c2c52.PNG)
+
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.3 Test 3 Navegar en Teléfonos ordenadores y pantallas
