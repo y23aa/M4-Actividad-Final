@@ -40,9 +40,10 @@ public class Test5_6 {
     WebDriver driver;
     WebDriverWait wait;
 
+
     @Step
     public void i_have_an_item_in_cart(){
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(WEBSITE);
         driver.findElement(PHONES_LOCATOR).click();
         driver.findElement(PHONE_S6_LOCATOR).click();
