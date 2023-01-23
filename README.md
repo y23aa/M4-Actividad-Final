@@ -277,11 +277,8 @@ Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 [Volver al menú](#tabla-de-contenidos)
 
 ##### 5.3.1 COMO usuario QUIERO ser capaz de navegar por diferentes productos
-```
-@Test
-public void 
-}
-```
+![test3](https://user-images.githubusercontent.com/123221049/214046431-1f28e9f7-26c1-44ce-9613-bdb9aaee0917.PNG)
+
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.4 Test 4 Añadir al carrito
@@ -289,11 +286,8 @@ public void
 [Volver al menú](#tabla-de-contenidos)
 
 ##### 5.4.1 COMO usuario QUIERO añadir un s7 un s6 y un vaio i7
-```
-@Test
-public void 
-}
-```
+![test4](https://user-images.githubusercontent.com/123221049/214046734-6c88fcd8-8c36-443d-8cd7-c1d260ecabdb.PNG)
+
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.5 Test 5 Eliminar del carrito
