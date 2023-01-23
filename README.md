@@ -273,9 +273,9 @@ Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.3 Test 3 Navegar en Teléfonos ordenadores y pantallas
-Escenario: Usuario puede navegar 
-Given - Dado que el usuario puede navegar por diferentes productos
-When - Cuando el usuario da clic en alguno de los botones "Phone", "Laptop", "Monitor"
+Escenario: Usuario puede navegar  
+Given - Dado que el usuario puede navegar por diferentes productos  
+When - Cuando el usuario da clic en alguno de los botones "Phone", "Laptop", "Monitor"  
 Then - Luego el usuario puede seleccionar ya sea "S6", "Vaio I5", "Apple 24"
 
 [Volver al menú](#tabla-de-contenidos)
