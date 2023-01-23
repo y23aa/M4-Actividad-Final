@@ -239,7 +239,7 @@ Scratches and Consoles
 4. Actualice webdriver.chrome.driver en la clase `xxxx` en la ruta del ejecutable drivers/windows/chromedriver.exe de su máquina local
 
 ### 5. Ejecución de Pruebas
-El conjunto de pruebas contiene las siguientes pruebas
+Se realizaron un total de 6 pruebas
 
 [Volver al menú](#tabla-de-contenidos)
 
@@ -273,6 +273,10 @@ Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.3 Test 3 Navegar en Teléfonos ordenadores y pantallas
+Escenario: Usuario puede navegar 
+Given - Dado que el usuario puede navegar por diferentes productos
+When - Cuando el usuario da clic en alguno de los botones "Phone", "Laptop", "Monitor"
+Then - Luego el usuario puede seleccionar ya sea "S6", "Vaio I5", "Apple 24"
 
 [Volver al menú](#tabla-de-contenidos)
 
@@ -282,6 +286,10 @@ Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.4 Test 4 Añadir al carrito
+Escenario: Usuario puede añadir al carrito 
+Given - Dado que el usuario puede seleccionar diferentes productos
+When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"
+Then - Luego el usuario lo puede añadir al carrito
 
 [Volver al menú](#tabla-de-contenidos)
 
@@ -291,6 +299,10 @@ Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.5 Test 5 Eliminar del carrito
+Escenario: Usuario puede eliminar del carrito 
+Given - Dado que el usuario puede seleccionar diferentes productos
+When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"
+Then - Luego el usuario lo puede eliminar del carrito 
 
 [Volver al menú](#tabla-de-contenidos)
 
@@ -300,6 +312,10 @@ Then -  Luego el usuario inicia sesión y puede proseguir con su orden
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.6 Test 6 Pedido de artículos
+Escenario: Usuario puede hacer pedidos
+Given - Dado que el usuario puede seleccionar diferentes productos
+When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"
+Then - Luego el usuario procede a hacer el pedido 
 
 [Volver al menú](#tabla-de-contenidos)
 
