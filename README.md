@@ -246,10 +246,9 @@ El conjunto de pruebas contiene las siguientes pruebas
 #### 5.1 Test 1 Sign Up en la Tienda Online
 
 Escenario: Registrar un nuevo usuario
-
-Given - Dado que el usuario navega a la página de registro
-When -  Cuando el usuario ingresa su correo electrónico, contraseña e información personal Y el usuario hace clic en el botón "Registrarse"
-Then -  Luego se debe crear una nueva cuenta y el usuario debe iniciar sesión
+Given - Dado que el usuario navega a la página de registro  
+When -  Cuando el usuario ingresa su nombre de usuario y contraseña Y hace clic en el botón "Registrarse"  
+Then -  Luego se crea una nueva cuenta y el usuario puede iniciar sesión
 
 [Volver al menú](#tabla-de-contenidos)
 
