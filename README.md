@@ -245,6 +245,9 @@ El conjunto de pruebas contiene las siguientes pruebas
 
 #### 5.1 Test 1 Sign Up en la Tienda Online
 
+![test1](https://user-images.githubusercontent.com/123221049/214040957-05b9b38f-ce99-4ac6-b7a0-ebeb47884e27.PNG)
+
+
 [Volver al menú](#tabla-de-contenidos)
 
 ##### 5.1.1 COMO usuario QUIERO ser capaz de darme de alta
