@@ -1,6 +1,9 @@
 package starter;
 
 //import io.cucumber.junit.CucumberSerenityRunner; TODO: USED WITH CUCUMBER
+import Pages.CartPage;
+import Pages.HomePage;
+import Pages.ProductPage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.After;
@@ -49,86 +52,102 @@ public class Test3_4 {
 
     WebDriver driver;
     WebDriverWait wait;
-
+    private HomePage homePage;
+    private CartPage cartPage;
+    private ProductPage productPage;
     @Before
     public void setUp(){
+        homePage = new HomePage(driver);
+        cartPage = new CartPage(driver);
+        productPage = new ProductPage(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        driver.get(WEBSITE);
     }
-
-//    @Test
-//    public void test3_navigate_between_different_products(){
-//        // Phone list
-//        driver.findElement(PHONES_LOCATOR).click();
-//        wait.until(elementToBeClickable(FIRST_ELEMENT));
-//        String phoneTitle = driver.findElement(FIRST_ELEMENT).getText();
-//        assertThat(phoneTitle).isEqualToIgnoringCase("Samsung galaxy s6");
-//
-//        // Laptops list
-//        driver.findElement(LAPTOPS_LOCATOR).click();
-//        wait.until(elementToBeClickable(LAPTOP_VAIO_I5_LOCATOR));
-//        String laptopTitle = driver.findElement(FIRST_ELEMENT).getText();
-//        assertThat(laptopTitle).isEqualToIgnoringCase("Sony vaio i5");
-//
-//        // Monitors list
-//        driver.findElement(MONITOR_LOCATOR).click();
-//        wait.until(elementToBeClickable(MONITOR_APPLE_24_LOCATOR));
-//        String monitorTitle = driver.findElement(FIRST_ELEMENT).getText();
-//        assertThat(monitorTitle).isEqualToIgnoringCase("Apple monitor 24");
-//    }
 
     @Test
-    public void test4_add_samsung_s7_samsung_s6_vaio_i7() {
-        // add samsung s7
-        driver.findElement(PHONES_LOCATOR).click();
-        wait.until(elementToBeClickable((PHONE_S7_LOCATOR)));
-        driver.findElement(PHONE_S7_LOCATOR).click();
-        WebElement addToCartS7Button = driver.findElement(ADD_TO_CART_MOBILE_S7_LOCATOR);
-        wait.until(elementToBeClickable(addToCartS7Button));
-        addToCartS7Button.click();
-        wait.until(alertIsPresent());
-        driver.switchTo().alert().accept();
+    public void testAddToCart() {
+        // Add Samsung galaxy s7
+        homePage.navigateTo();
+        homePage.clickOnPhones();
+        productPage.clickOnProduct(PHONE_S7_LOCATOR);
+        productPage.addProductToCart();
+        cartPage.navigateTo();
+        assertThat(cartPage.getProductNames()).contains("Samsung galaxy s7");
 
+        // Add Samsung galaxy s7
+        homePage.navigateTo();
+        homePage.clickOnPhones();
+        productPage.clickOnProduct(PHONE_S6_LOCATOR);
+        productPage.addProductToCart();
+        cartPage.navigateTo();
+        assertThat(cartPage.getProductNames()).contains("Samsung galaxy s6");
 
-        // back to home
-        driver.findElement(HOME_PAGE_LOCATOR).click();
-        wait.until(elementToBeClickable((PHONES_LOCATOR)));
-
-        // add samsung s6
-        driver.findElement(PHONES_LOCATOR).click();
-        wait.until(elementToBeClickable((PHONE_S6_LOCATOR)));
-        driver.findElement(PHONE_S6_LOCATOR).click();
-        WebElement addToCartS6Button = driver.findElement(ADD_TO_CART_MOBILE_S6_LOCATOR);
-        wait.until(elementToBeClickable(addToCartS6Button));
-        addToCartS6Button.click();
-        wait.until(alertIsPresent());
-        driver.switchTo().alert().accept();
-        driver.findElement(VIEW_CART_LOCATOR).click();
-
-        // back to home
-        driver.findElement(HOME_PAGE_LOCATOR).click();
-        wait.until(elementToBeClickable((LAPTOPS_LOCATOR)));
-
-        // add samsung s6
-        driver.findElement(LAPTOPS_LOCATOR).click();
-        wait.until(elementToBeClickable((LAPTOP_VAIO_I7_LOCATOR)));
-        driver.findElement(LAPTOP_VAIO_I7_LOCATOR).click();
-        WebElement addToCartVaioI7Button = driver.findElement(ADD_TO_CART_LAPTOP_VAIO_I7);
-        wait.until(elementToBeClickable(addToCartVaioI7Button));
-        addToCartVaioI7Button.click();
-        wait.until(alertIsPresent());
-        driver.switchTo().alert().accept();
-
-        // check
-        driver.findElement(VIEW_CART_LOCATOR).click();
-        wait.until(elementToBeClickable(TOTAL_PRICE_LOCATOR));
-        List<WebElement> itemsInCart = driver.findElements(CART_ROWS_NAME_LOCATOR);
-        System.out.println(itemsInCart.size());
-        for (int i = 0; i < itemsInCart.size(); i++) {
-            assertThat(itemsInCart.get(i).getText()).isIn(WANTED_ITEMS);
-        }
-
+        // Add Sony vaio i7
+        homePage.navigateTo();
+        homePage.clickOnLaptops();
+        productPage.clickOnProduct(LAPTOP_VAIO_I7_LOCATOR);
+        productPage.addProductToCart();
+        cartPage.navigateTo();
+        assertThat(cartPage.getProductNames()).contains("Sony vaio i7");
     }
+//    @Test
+//    public void test4_add_samsung_s7_samsung_s6_vaio_i7() {
+//        // refactor
+//        HomePage homePage = new HomePage(driver);
+//        driver.get(WEBSITE);
+//        homePage.goToPhones();
+//        homePage.addItemInCart("Samsung s6");
+//
+//
+//        // add samsung s7
+//        driver.findElement(PHONES_LOCATOR).click();
+//        wait.until(elementToBeClickable((PHONE_S7_LOCATOR)));
+//        driver.findElement(PHONE_S7_LOCATOR).click();
+//        WebElement addToCartS7Button = driver.findElement(ADD_TO_CART_MOBILE_S7_LOCATOR);
+//        wait.until(elementToBeClickable(addToCartS7Button));
+//        addToCartS7Button.click();
+//        wait.until(alertIsPresent());
+//        driver.switchTo().alert().accept();
+//
+//
+//        // back to home
+//        driver.findElement(HOME_PAGE_LOCATOR).click();
+//        wait.until(elementToBeClickable((PHONES_LOCATOR)));
+//
+//        // add samsung s6
+//        driver.findElement(PHONES_LOCATOR).click();
+//        wait.until(elementToBeClickable((PHONE_S6_LOCATOR)));
+//        driver.findElement(PHONE_S6_LOCATOR).click();
+//        WebElement addToCartS6Button = driver.findElement(ADD_TO_CART_MOBILE_S6_LOCATOR);
+//        wait.until(elementToBeClickable(addToCartS6Button));
+//        addToCartS6Button.click();
+//        wait.until(alertIsPresent());
+//        driver.switchTo().alert().accept();
+//        driver.findElement(VIEW_CART_LOCATOR).click();
+//
+//        // back to home
+//        driver.findElement(HOME_PAGE_LOCATOR).click();
+//        wait.until(elementToBeClickable((LAPTOPS_LOCATOR)));
+//
+//        // add samsung s6
+//        driver.findElement(LAPTOPS_LOCATOR).click();
+//        wait.until(elementToBeClickable((LAPTOP_VAIO_I7_LOCATOR)));
+//        driver.findElement(LAPTOP_VAIO_I7_LOCATOR).click();
+//        WebElement addToCartVaioI7Button = driver.findElement(ADD_TO_CART_LAPTOP_VAIO_I7);
+//        wait.until(elementToBeClickable(addToCartVaioI7Button));
+//        addToCartVaioI7Button.click();
+//        wait.until(alertIsPresent());
+//        driver.switchTo().alert().accept();
+//
+//        // check
+//        driver.findElement(VIEW_CART_LOCATOR).click();
+//        wait.until(elementToBeClickable(TOTAL_PRICE_LOCATOR));
+//        List<WebElement> itemsInCart = driver.findElements(CART_ROWS_NAME_LOCATOR);
+//        System.out.println(itemsInCart.size());
+//        for (int i = 0; i < itemsInCart.size(); i++) {
+//            assertThat(itemsInCart.get(i).getText()).isIn(WANTED_ITEMS);
+//        }
+//
+//    }
     @After
     public void tearDown(){
         driver.quit();
