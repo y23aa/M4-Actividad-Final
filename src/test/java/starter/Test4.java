@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,19 +17,6 @@ import java.time.Duration;
 import static org.assertj.core.api.Assertions.*;
 @RunWith(SerenityRunner.class)
 public class Test4 {
-
-    private static final By PHONE_S7_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=4\"]");
-
-    private static final By PHONE_S6_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=1\"]");
-    private static final By LAPTOP_VAIO_I7_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=9\"]");
-
-    private void sleep1Sec(){
-        try {
-            Thread.sleep(Duration.ofSeconds(1));
-        }
-        catch(InterruptedException ie){
-        }
-    }
 
     @Managed
     private WebDriver driver;
@@ -52,26 +38,26 @@ public class Test4 {
         // Add Samsung galaxy s7
         homePage.navigateTo();
         homePage.clickOnPhones();
-        productPage.clickOnProduct(PHONE_S7_LOCATOR);
+        productPage.clickOnPhoneS7();
         productPage.addProductToCart();
         cartPage.navigateTo();
-        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7");
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
 
         // Add Samsung galaxy s6
         homePage.navigateTo();
         homePage.clickOnPhones();
-        productPage.clickOnProduct(PHONE_S6_LOCATOR);
+        productPage.clickOnPhoneS6();
         productPage.addProductToCart();
         cartPage.navigateTo();
-        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
 
         // Add Sony vaio i7
         homePage.navigateTo();
         homePage.clickOnLaptops();
-        productPage.clickOnProduct(LAPTOP_VAIO_I7_LOCATOR);
+        productPage.clickOnLaptopVaioI7();
         productPage.addProductToCart();
         cartPage.navigateTo();
-        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");
+        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
     }
 
     @After

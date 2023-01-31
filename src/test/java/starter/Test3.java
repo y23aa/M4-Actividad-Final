@@ -10,7 +10,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,11 +18,8 @@ import java.time.Duration;
 import static org.assertj.core.api.Assertions.*;
 @RunWith(SerenityRunner.class)
 public class Test3 {
-    private static final By LAPTOP_VAIO_I5_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=8\"]"); // ToDo: create locators from ids numbers
-    private static final By MONITOR_APPLE_24_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=10\"]");
 
-    private static final By PHONE_S6_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=1\"]");
-
+    //ToDo remove
     private void sleep1Sec() {
         try {
             Thread.sleep(Duration.ofSeconds(1));
@@ -50,22 +46,22 @@ public class Test3 {
     public void test3_navigate_between_different_products() {
         homePage.navigateTo();
         homePage.clickOnPhones();
-        sleep1Sec();
-        assertThat(productPage.findItemsByLocator(PHONE_S6_LOCATOR).size()).isGreaterThanOrEqualTo(1);
-        assertThat(productPage.findItemsByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
-        assertThat(productPage.findItemsByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
+        sleep1Sec(); //todo remove
+        assertThat(productPage.hasPhones()).isTrue();
+        assertThat(productPage.hasLaptops()).isFalse();
+        assertThat(productPage.hasMonitors()).isFalse();
 
         homePage.clickOnLaptops();
-        sleep1Sec();
-        assertThat(productPage.findItemsByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
-        assertThat(productPage.findItemsByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isGreaterThanOrEqualTo(1);
-        assertThat(productPage.findItemsByLocator(MONITOR_APPLE_24_LOCATOR).size()).isLessThan(1);
+        sleep1Sec(); //todo remove
+        assertThat(productPage.hasPhones()).isFalse();
+        assertThat(productPage.hasLaptops()).isTrue();
+        assertThat(productPage.hasMonitors()).isFalse();
 
         homePage.clickOnMonitors();
-        sleep1Sec();
-        assertThat(productPage.findItemsByLocator(PHONE_S6_LOCATOR).size()).isLessThan(1);
-        assertThat(productPage.findItemsByLocator(LAPTOP_VAIO_I5_LOCATOR).size()).isLessThan(1);
-        assertThat(productPage.findItemsByLocator(MONITOR_APPLE_24_LOCATOR).size()).isGreaterThanOrEqualTo(1);
+        sleep1Sec(); //todo remove
+        assertThat(productPage.hasPhones()).isFalse();
+        assertThat(productPage.hasLaptops()).isFalse();
+        assertThat(productPage.hasMonitors()).isTrue();
     }
 
     @After

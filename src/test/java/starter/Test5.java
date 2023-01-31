@@ -8,7 +8,6 @@ import net.thucydides.core.annotations.Managed;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,8 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SerenityRunner.class)
 public class Test5 {
-    private static final By PHONE_S6_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=1\"]"); // ToDo: create locators from ids numbers
 
+    //ToDo remove
     private void sleepmSecs(int mSec) {
         try {
             Thread.sleep(Duration.ofMillis(mSec));
@@ -46,12 +45,12 @@ public class Test5 {
     public void test5_remove_s6_from_cart() {
         homePage.navigateTo();
         homePage.clickOnPhones();
-        productPage.clickOnProduct(PHONE_S6_LOCATOR);
+        productPage.clickOnPhoneS6();
         productPage.addProductToCart();
         cartPage.navigateTo();
         assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");
         cartPage.removeProductFromCart("Samsung galaxy s6");
-        sleepmSecs(750);
+        sleepmSecs(1500); // todo remove
         assertThat(cartPage.getProductNamesFromCart().size()).isLessThan(1);
     }
 }

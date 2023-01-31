@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,16 +16,6 @@ import java.time.Duration;
 
 @RunWith(SerenityRunner.class)
 public class Test6 {
-    private static final By LAPTOP_VAIO_I7_LOCATOR = By.xpath("//a[@href=\"prod.html?idp_=9\"]");
-
-
-    private void sleepmSecs(int mSec){
-        try {
-            Thread.sleep(Duration.ofMillis(mSec));
-        }
-        catch(InterruptedException ie){
-        }
-    }
 
     @Managed
     WebDriver driver;
@@ -47,12 +36,11 @@ public class Test6 {
     public void test6_do_checkout(){
         homePage.navigateTo();
         homePage.clickOnLaptops();
-        productPage.clickOnProduct(LAPTOP_VAIO_I7_LOCATOR);
+        productPage.clickOnLaptopVaioI7();
         productPage.addProductToCart();
         cartPage.navigateTo();
         cartPage.buyItemsInCart();
     }
-
 
     @After
     public void tearDown(){
