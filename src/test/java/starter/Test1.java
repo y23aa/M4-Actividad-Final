@@ -1,8 +1,6 @@
 package starter;
 
-import Pages.CartPage;
 import Pages.HomePage;
-import Pages.ProductPage;
 import Pages.SignInPage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
@@ -29,15 +27,11 @@ public class Test1 {
     WebDriver driver;
     WebDriverWait wait;
     private HomePage homePage;
-    private CartPage cartPage;
-    private ProductPage productPage;
     private SignInPage signInPage;
     @Before
     public void setUp() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         homePage = new HomePage(driver);
-        cartPage = new CartPage(driver);
-        productPage = new ProductPage(driver);
         signInPage = new SignInPage(driver);
     }
 
@@ -48,7 +42,6 @@ public class Test1 {
         String alertText = signInPage.createUser(TEST_NAME, TEST_PWD);
         assertThat(alertText).isEqualToIgnoringCase("Sign up successful.");
     }
-
 
     @After
     public void close_browser() {

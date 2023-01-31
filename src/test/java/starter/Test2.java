@@ -26,18 +26,12 @@ public class Test2 {
     WebDriver driver;
     WebDriverWait wait;
     private HomePage homePage;
-    private CartPage cartPage;
-    private ProductPage productPage;
-    private SignInPage signInPage;
     private LogInPage logInPage;
 
     @Before
     public void setUp() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         homePage = new HomePage(driver);
-        cartPage = new CartPage(driver);
-        productPage = new ProductPage(driver);
-        signInPage = new SignInPage(driver);
         logInPage = new LogInPage(driver);
     }
 

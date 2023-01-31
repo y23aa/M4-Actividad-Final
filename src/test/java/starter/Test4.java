@@ -2,7 +2,6 @@ package starter;
 
 import Pages.CartPage;
 import Pages.HomePage;
-import Pages.ProductPage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.After;
@@ -23,14 +22,12 @@ public class Test4 {
     private WebDriverWait wait;
     private HomePage homePage;
     private static CartPage cartPage;
-    private static ProductPage productPage;
 
     @Before
     public void setUp() {
         homePage = new HomePage(driver);
         cartPage = new CartPage(driver);
-        productPage = new ProductPage(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     @Test
@@ -38,24 +35,24 @@ public class Test4 {
         // Add Samsung galaxy s7
         homePage.navigateTo();
         homePage.clickOnPhones();
-        productPage.clickOnPhoneS7();
-        productPage.addProductToCart();
+        homePage.clickOnPhoneS7();
+        homePage.addProductToCart();
         cartPage.navigateTo();
         assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
 
         // Add Samsung galaxy s6
         homePage.navigateTo();
         homePage.clickOnPhones();
-        productPage.clickOnPhoneS6();
-        productPage.addProductToCart();
+        homePage.clickOnPhoneS6();
+        homePage.addProductToCart();
         cartPage.navigateTo();
         assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
 
         // Add Sony vaio i7
         homePage.navigateTo();
         homePage.clickOnLaptops();
-        productPage.clickOnLaptopVaioI7();
-        productPage.addProductToCart();
+        homePage.clickOnLaptopVaioI7();
+        homePage.addProductToCart();
         cartPage.navigateTo();
         assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
     }
