@@ -34,6 +34,14 @@ public class CartPage extends PageObject {
         driver.findElement(VIEW_CART_LOCATOR).click();
     }
 
+    public void navigateToWaitForProduct(String productName) {
+        this.navigateTo();
+        By productLocator = By.xpath("//td[contains(text(),'" + productName + "')]");
+        WebElement productRow = driver.findElement(productLocator);
+        WebElement removeButton = productRow.findElement(REMOVE_ITEM_LOCATOR);
+        wait.until(elementToBeClickable(removeButton));
+    }
+
     public List<String> getProductNamesFromCart() {
         return driver.findElements(CART_ROWS_NAME_LOCATOR)
                 .stream()

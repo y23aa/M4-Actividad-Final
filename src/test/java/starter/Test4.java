@@ -37,24 +37,23 @@ public class Test4 {
         homePage.clickOnPhones();
         homePage.clickOnPhoneS7();
         homePage.addProductToCart();
-        cartPage.navigateTo();
-        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
 
         // Add Samsung galaxy s6
         homePage.navigateTo();
         homePage.clickOnPhones();
         homePage.clickOnPhoneS6();
         homePage.addProductToCart();
-        cartPage.navigateTo();
-        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
 
         // Add Sony vaio i7
         homePage.navigateTo();
         homePage.clickOnLaptops();
         homePage.clickOnLaptopVaioI7();
         homePage.addProductToCart();
-        cartPage.navigateTo();
+
+        cartPage.navigateToWaitForProduct("Samsung galaxy s6");
         assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
     }
 
     @After

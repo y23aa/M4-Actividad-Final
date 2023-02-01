@@ -39,7 +39,7 @@ public class HomePage extends PageObject {
 
     public void navigateTo() {
         this.driver.get("https://www.demoblaze.com/index.html");
-        //this.driver.manage().window().maximize();
+        this.driver.manage().window().maximize();
     }
 
     public void clickOnPhones() {
@@ -88,11 +88,16 @@ public class HomePage extends PageObject {
         driver.findElement(productName).click();
     }
 
-    public void clickOnPhoneS7(){ clickOnProduct(PHONE_S7_LOCATOR); }
+    public void clickOnPhoneS7(){
+        wait.until(elementToBeClickable(PHONE_S7_LOCATOR));
+        clickOnProduct(PHONE_S7_LOCATOR);
+    }
     public void clickOnPhoneS6(){
+        wait.until(elementToBeClickable(PHONE_S6_LOCATOR));
         clickOnProduct(PHONE_S6_LOCATOR);
     }
     public void clickOnLaptopVaioI7(){
+        wait.until(elementToBeClickable(LAPTOP_VAIO_I7_LOCATOR));
         clickOnProduct(LAPTOP_VAIO_I7_LOCATOR);
     }
 
