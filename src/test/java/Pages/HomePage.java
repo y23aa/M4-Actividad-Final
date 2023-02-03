@@ -58,6 +58,7 @@ public class HomePage extends PageObject {
         );
     }
 
+
     public void clickOnMonitors() {
         this.driver.findElement(MONITOR_LOCATOR).click();
         wait.until(ExpectedConditions.and(

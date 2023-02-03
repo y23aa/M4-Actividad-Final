@@ -12,6 +12,8 @@ import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,6 +48,15 @@ public class Test2 {
 
     @After
     public void close_browser() {
+        String osName = System.getProperty("os.name");
+        String osVersion = System.getProperty("os.version");
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd',' MMMM yyyy");
+        String formattedDate = today.format(formatter);
+
+        System.out.println("\nReport name : TEST2");
+        System.out.println("O.S name    : " + osName + " version " + osVersion);
+        System.out.println("Date        : " + formattedDate + "\n");
         driver.quit();
     }
 }
