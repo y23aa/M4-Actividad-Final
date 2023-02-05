@@ -213,27 +213,50 @@ EJEMPLOS:
 
 
 ### Instalación
-1. Clonar el repositorio: `git clone https://github.com/xxxx.git`
+1. Clonar el repositorio: `(https://github.com/UB-Grupo4/M4-Actividad-Final)`
 2. Importe el proyecto a IntelliJ IDEA como un proyecto Maven
 
 ```
-M4-Actividad-Final/
-├── .idea
-├── src/
-| ├── main/
-| | └── java/
-| | └── resources/
-| ├── test/
-| | └── java/
-| | ├──TestWhenDoingActividadFinal
-| | └── resources/
-| | ├── drivers/
-| | | └── windows/
-| | | └── chromedriver.exe
-├── target/
-├── pom.xml
-External Libraries/
-Scratches and Consoles
+|-- M4-Actividad-Final/
+|-- Main
+|-- .gitignore
+|-- README.md
+|-- Pom.xml
+|-- serenity.properties
+|-- src/
+|   |-- test/
+|   |   |-- resources/
+|   |   |   |-- drivers/
+|   |   |   |   |-- linux/
+|   |   |   |   |   |-- chromedriver
+|   |   |   |   |-- mac64/
+|   |   |   |   |   |-- chromedriver
+|   |   |   |   |-- mac_arm64/
+|   |   |   |   |   |-- chromedriver
+|   |   |   |   |-- windows/
+|   |   |   |   |   |-- chromedriver
+|   |   |   |-- serenity.conf
+|   |   |-- java/
+|   |   |   |-- PageObjects/
+|   |   |   |-- Pages/
+|   |   |   |   |-- CartPage/
+|   |   |   |   |-- HomePage/
+|   |   |   |   |-- LogInPage/
+|   |   |   |   |-- SignInPage/
+|   |   |   |-- starter/
+|   |   |   |   |-- Test1Starter
+|   |   |   |   |-- Test2Starter
+|   |   |   |   |-- Test3Starter
+|   |   |   |   |-- Test4Starter
+|   |   |   |   |-- Test5Starter
+|   |   |   |   |-- Test6Starter
+|   |   |   |-- steps/
+|   |   |   |   |-- Test1Steps
+|   |   |   |   |-- Test2Steps
+|   |   |   |   |-- Test3Steps
+|   |   |   |   |-- Test4Steps
+|   |   |   |   |-- Test5Steps
+|   |   |   |   |-- Test6Steps
 ```
 
 4. Actualice webdriver.chrome.driver en la clase `xxxx` en la ruta del ejecutable drivers/windows/chromedriver.exe de su máquina local
